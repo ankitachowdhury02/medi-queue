@@ -8,7 +8,7 @@ const Main = () => {
     return (
        <div className='flex w-[100%]'>
         <Sidebar/>
-            <div className=' w-[100%]'>
+            <div className=' w-full'>
             <Navbar />
              <div className='min-h-screen '>
                 <Outlet />
