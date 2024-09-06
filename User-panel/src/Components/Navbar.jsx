@@ -46,8 +46,8 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-      <div className="form-control">
-      <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+      <div className="form-control w-80">
+      <input type="text" placeholder="Search" className="input input-bordered w-56 md:w-auto rounded-full" />
     </div>
       </div>
       <div className="navbar-end">
