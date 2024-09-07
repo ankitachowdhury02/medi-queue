@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors';
 import connectDB from './db/index.js';
 import dotenv from 'dotenv';
+import userRoutes from './routes/userRoutes.js'
 
 // config
 dotenv.config()
@@ -28,6 +29,7 @@ app.use(cors({
 app.get('/', (req, res) => {
     res.send('Hello World');
 })
+app.use('/api/v1/users', userRoutes);
 
 // listen
 app.listen(port, () => {
