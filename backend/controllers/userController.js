@@ -1,5 +1,6 @@
 import { User } from "../models/userModel.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
+import zod from 'zod';
 
 const registerController = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
@@ -93,8 +94,47 @@ const loginController = asyncHandler(async (req, res) => {
     })
 })
 
-const logoutController = asyncHandler(async (req, res) => {
+const updateUserController = asyncHandler(async (req, res) => {
+    const updateBody = zod.object({
+        name: zod.string().min(3).max(30).optional(),
+        password: zod.string().min(6).max(30).optional(),
+    })
+
+    const parseResult = updateBody.safeParse(req.body);
+    if (!parseResult.success) {
+        return res.status(400).json({
+            success: false,
+            message: 'Invalid update data'
+        })
+    }
+
+    const { name, password } = parseResult.data;
+    if (!name && !password) {
+        return res.status(400).json({
+            success: false,
+            message: 'Please provide name or password'
+        })
+    }
+
+    const updatedData = {
+        ...(name && { name }),
+        ...(password && { password })
+    }
+
+    const user = await User.findByIdAndUpdate(req.user._id, updatedData, { new: true }).select('-password');
+    if (!user) {
+        return res.status(400).json({
+            success: false,
+            message: 'User not found'
+        })
+    }
+
+    res.status(200).json({
+        success: true,
+        message: 'User updated successfully',
+        data: user
+    })
 
 })
 
-export { registerController, loginController, logoutController }
+export { registerController, loginController, logoutController, updateUserController }
