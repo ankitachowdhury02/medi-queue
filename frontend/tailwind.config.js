@@ -5,10 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    color: {
-      "PrimaryBG":"Bg-gradient-to-r from-[#9083D5] to-[#807593]"
-    },
     extend: {},
   },
-  plugins: [require('daisyui')],
+  plugins: [
+    require('daisyui'),
+  ],
 }

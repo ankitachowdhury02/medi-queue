@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaCircleUser } from "react-icons/fa6";
-import Signup from './Signup';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -51,8 +50,8 @@ const Navbar = () => {
     </div>
       </div>
       <div className="navbar-end">
-        <button onClick={() => document.getElementById('my_modal_3').showModal()} className="btn bg-[#9083D5] text-white"><FaCircleUser />Sign Up</button>
-        <Signup/>
+        <button className="btn bg-[#9083D5] text-white"><FaCircleUser />Sign Up</button>
+        
       </div>
     </div>
   );

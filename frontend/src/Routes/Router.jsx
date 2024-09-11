@@ -1,10 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-import Home from "../Pages/Home/Home";
-import Signup from "../Components/Signup";
-import Appointment from "../Pages/Appointment";
-import ProfileUpdate from "../Pages/ProfileUpdate";
-import HelpAndSupport from "../Pages/HelpAndSupport";
+import Home from "../Pages/User-Pages/Home";
+import Appointment from "../Pages/User-Pages/Appointment";
+import ProfileUpdate from "../Pages/User-Pages/ProfileUpdate";
+import HelpAndSupport from "../Pages/User-Pages/HelpAndSupport";
 
 
 const router = createBrowserRouter([
@@ -30,10 +29,7 @@ const router = createBrowserRouter([
             }
         ]
     },
-    {
-        path:"/signup",
-        element: <Signup/>
-    }
+   
 ])
 
 export default router;
