@@ -12,8 +12,8 @@ const Main = () => {
             <Navbar />
             <div className='min-h-screen'>
                <Outlet />
-            </div>
-            <Footer />
+            </div >
+            <Footer/>
          </div>
       </div>
    )
