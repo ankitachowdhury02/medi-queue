@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
-const PortfolioFooter = () => {
+const LandingPageFooter = () => {
   return (
     <div>
       <footer className="footer xl:px-24 py-10 px-4 text-base-content">
-        <aside className='sm:block hidden'>
+        <aside className="sm:block hidden">
           <img src="/logo.png" alt="" />
         </aside>
         <nav>
@@ -28,7 +28,7 @@ const PortfolioFooter = () => {
           <a className="link link-hover">Social media</a>
         </nav>
       </footer>
-        <hr />
+      <hr />
       <footer className="footer items-center xl:px-24 px-4 py-4 mt-2">
         <aside className="items-center grid-flow-col">
           <p>Copyright © 2023 - All right reserved</p>
@@ -70,7 +70,7 @@ const PortfolioFooter = () => {
         </nav>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default PortfolioFooter
+export default LandingPageFooter;
