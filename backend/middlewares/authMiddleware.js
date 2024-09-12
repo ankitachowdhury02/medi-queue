@@ -3,7 +3,7 @@ import { User } from "../models/userModel.js";
 
 export const authMiddleware = async (req, res, next) => {
     try {
-        const token = req.headers("Authorization")?.replace('Bearer ', '')
+        const token = req.headers.authorization?.replace('Bearer ', '');
         if (!token) {
             return res.status(401).json({
                 success: false,

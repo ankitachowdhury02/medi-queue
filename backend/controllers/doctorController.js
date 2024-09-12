@@ -3,7 +3,7 @@ import { Doctor } from '../models/doctorModel.js'
 
 const doctorRegisterController = asyncHandler(async (req, res) => {
     const { name, about, specification, yearOfExperience, hospitalId, timings } = req.body;
-    if ([name, about, specification, yearOfExperience, timings].some(field => field?.trim === "")) {
+    if ([name, about, specification, yearOfExperience, timings].some(field => field?.trim() === "")) {
         return res.status(400).json({
             success: false,
             message: 'Please fill all fields'
