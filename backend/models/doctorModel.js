@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { string } from "zod";
 
 const doctorModel = new mongoose.Schema({
     name: {
@@ -8,12 +7,12 @@ const doctorModel = new mongoose.Schema({
         index: true
     },
     about: {
-        type: string,
-        require: true
+        type: String,
+        required: true
     },
     specialization: {
-        type: string,
-        require: true
+        type: String,
+        required: true
     },
     yearOfExperience: {
         type: Number,
@@ -21,13 +20,19 @@ const doctorModel = new mongoose.Schema({
     },
     hospitalId: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Hospital'
+        ref: 'Hospital',
+        required: false
     }],
     timings: [{
-        day: { type: string, required: true },
-        startTime: { type: string, required: true },
-        endTime: { type: string, required: true },
-    }]
-})
+        day: { type: String, required: true },
+        startTime: { type: String, required: true },
+        endTime: { type: String, required: true }
+    }],
+    duration: {
+        type: Number,
+        required: true,
+        default: 15
+    }
+});
 
 export const Doctor = mongoose.model('Doctor', doctorModel);

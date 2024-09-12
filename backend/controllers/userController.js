@@ -2,6 +2,7 @@ import { User } from "../models/userModel.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import zod from 'zod';
 
+// register controller
 const registerController = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -53,6 +54,7 @@ const registerController = asyncHandler(async (req, res) => {
 
 })
 
+// login controller
 const loginController = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
     if ([email || password].some(fields => fields?.trim() === '')) {
@@ -94,6 +96,7 @@ const loginController = asyncHandler(async (req, res) => {
     })
 })
 
+// update profile
 const updateUserController = asyncHandler(async (req, res) => {
     const updateBody = zod.object({
         name: zod.string().min(3).max(30).optional(),

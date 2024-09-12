@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const bedSchema = new mongoose.Schema({
     hospitalId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Doctor',
+        ref: 'Hospital',
         required: true
     },
     bedNumber: {
@@ -18,7 +18,7 @@ const bedSchema = new mongoose.Schema({
     booking: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'BedBooking',
-        required: true
+        required: false
     }
 })
 

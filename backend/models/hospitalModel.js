@@ -4,7 +4,6 @@ const hospitalSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true,
         index: true
     },
     description: {
@@ -12,11 +11,34 @@ const hospitalSchema = new mongoose.Schema({
         required: true,
     },
     location: {
+        city: {
+            type: String,
+            required: true
+        },
+        district: {
+            type: String,
+            required: true
+        },
+        state: {
+            type: String,
+            required: true
+        },
+        country: {
+            type: String,
+            required: true
+        },
+        zipCode: {
+            type: String,
+            required: true
+        }
+    },
+    phoneNumber: [{
         type: String,
         required: true,
-    },
-    phoneNumber: {
-        type: Number,
+        unique: true
+    }],
+    email: {
+        type: String,
         required: true,
         unique: true
     },
