@@ -137,4 +137,4 @@ const updateUserController = asyncHandler(async (req, res) => {
 
 })
 
-export { registerController, loginController, logoutController, updateUserController }
+export { registerController, loginController, updateUserController }
