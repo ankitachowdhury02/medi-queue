@@ -29,13 +29,13 @@ const registerController = asyncHandler(async (req, res) => {
             })
         }
 
-        const user = await User.findById(newUser._id).select('-password');
-        if (!user) {
-            return res.status(400).json({
-                success: false,
-                message: 'Invalid user data'
-            });
-        }
+        // const user = await User.findById(newUser._id).select('-password');
+        // if (!user) {
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: 'Invalid user data'
+        //     });
+        // }
 
         const token = newUser.token();
         if (!token) {
@@ -48,7 +48,7 @@ const registerController = asyncHandler(async (req, res) => {
         res.status(201).json({
             success: true,
             message: 'User registered successfully',
-            data: user,
+            data: newUser,
             token: token
         })
     } catch (error) {

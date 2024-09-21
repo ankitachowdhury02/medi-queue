@@ -1,12 +1,13 @@
 import express from 'express';
-// import { authMiddleware } from '../middlewares/authMiddleware.js';
 import { upload } from '../middlewares/multerMiddleware.js';
-import { registerHospitalController } from '../controllers/hospitalController.js';
+import { hospitalRegisterController, hospitalLoginController } from '../controllers/hospitalController.js';
+// import { hospitalAuthMiddleware } from '../middlewares/hospitalAuthMiddleware.js';
 
 // router
 const router = express.Router();
 
 // routes
-router.post('/register', upload.single('profileImage'), registerHospitalController);
+router.post('/register', upload.single('profileImage'), hospitalRegisterController);
+router.post('/login', hospitalLoginController);
 
 export default router;
