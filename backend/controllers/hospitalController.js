@@ -73,6 +73,7 @@ const hospitalRegisterController = asyncHandler(async (req, res) => {
     }
 })
 
+// hospital login controller
 const hospitalLoginController = asyncHandler(async (req, res) => {
     try {
         const { email, password } = req.body;
